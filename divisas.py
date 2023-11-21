@@ -26,8 +26,16 @@ def GBP():
     soup=b(content,"lxml")
     precio_libra= soup.find("p",{"class":"result__BigRate-sc-1bsijpp-1 iGrAod"})  
     print(precio_libra.text)
-
+    
+def CNY():
+    url="https://www.xe.com/es/currencyconverter/convert/?Amount=1&From=COP&To=CNY"
+    html=requests.get(url)
+    content=html.content
+    soup=b(content,"lxml")
+    precio_yuan= soup.find("p",{"class":"result__BigRate-sc-1bsijpp-1 iGrAod"})  
+    print(precio_yuan.text)
 
 dl()
 eu()
 GBP()
+CNY()
